@@ -1,0 +1,1 @@
+document.addEventListener('backbutton', events.back.click, true);
