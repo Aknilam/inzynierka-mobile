@@ -2,20 +2,60 @@
 
 	<ul class="topcoat-list">
 
-		<ons-list-item
-			class="topcoat-list__item--tappable topcoat-list__item__line-height" 
+		<ons-list-item ng-show="$root.LOGIN.state === $root.LOGIN.states.authorized"
+			class="pointer topcoat-list__item--tappable topcoat-list__item__line-height"
 			ng-click="ons.slidingMenu.toggleMenu(); 
-			ons.slidingMenu.setAbovePage('navigator1.html')">
-			<i class="fa fa-home fa-lg" style="color: #666"></i>
-			&nbsp; Page 1
+			ons.slidingMenu.setAbovePage('navigatorProjects.html')">
+			<i class="fa fa-gear fa-lg" style="color: #666"></i>
+			&nbsp; Projects
 		</ons-list-item>
 
-		<ons-list-item 
-			class="topcoat-list__item--tappable topcoat-list__item__line-height"
+		<ons-list-item ng-show="$root.PROJECT.isSet"
+			class="pointer topcoat-list__item--tappable topcoat-list__item__line-height" 
 			ng-click="ons.slidingMenu.toggleMenu(); 
-			ons.slidingMenu.setAbovePage('navigator2.html')">
+			ons.slidingMenu.setAbovePage('navigatorProject.html')">
+			<i class="fa fa-home fa-lg" style="color: #666"></i>
+			&nbsp; Project `{{$root.PROJECT.actual.name}}`
+		</ons-list-item>
+
+		<ons-list-item ng-show="$root.PROJECT.isSet"
+			class="pointer topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('navigatorMaterials.html')">
 			<i class="fa fa-gear fa-lg" style="color: #666"></i>
-			&nbsp; Page 2
+			&nbsp; Materials
+		</ons-list-item>
+
+		<ons-list-item ng-show="$root.PROJECT.isSet"
+			class="topcoat-list__item--tappable topcoat-list__item__line-height" 
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('navigatorMaterial.html')">
+			<i class="fa fa-home fa-lg" style="color: #666"></i>
+			&nbsp; Add material
+		</ons-list-item>
+
+		<ons-list-item ng-show="$root.PROJECT.isSet"
+			class="pointer topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('navigatorTags.html');">
+			<i class="fa fa-gear fa-lg" style="color: #666"></i>
+			&nbsp; Tags
+		</ons-list-item>
+
+		<ons-list-item
+			class="pointer topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('navigatorLogin.html')">
+			<i class="fa fa-gear fa-lg" style="color: #666"></i>
+			&nbsp; Login state: {{LOGIN.state}}
+		</ons-list-item>
+
+		<ons-list-item ng-show="$root.LOGIN.state === $root.LOGIN.states.unauthorized"
+			class="pointer topcoat-list__item--tappable topcoat-list__item__line-height"
+			ng-click="ons.slidingMenu.toggleMenu(); 
+			ons.slidingMenu.setAbovePage('navigatorRegister.html')">
+			<i class="fa fa-gear fa-lg" style="color: #666"></i>
+			&nbsp; Register
 		</ons-list-item>
 
 	</ul>

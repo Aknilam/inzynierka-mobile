@@ -1,0 +1,29 @@
+{
+  "name": "silva-mobile",
+  "version": "0.1.1",
+  "main": "silva\\www\\js\\app.js",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.2.25",
+    "bootstrap": "3.1.1",
+    "angular-bootstrap": "0.11.0",
+    "jquery-ui": "1.10.4",
+    "ng-tags-input": "2.1.1",
+
+    "angular-cookies": "1.2.25",
+    "ngCordova": "0.1.4-alpha",
+    "ng-file-upload": "1.6.12",
+    "onsenui": "1.0.4",
+    "underscore": "1.6.0",
+    "CryptoJS": "https://crypto-js.googlecode.com/files/CryptoJS%20v3.1.2.zip"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.25",
+    "closure-compiler":
+      "https://closure-compiler.googlecode.com/files/compiler-20130603.zip"
+  },
+  "resolutions": {
+    "angular": "1.2.25"
+  }
+}
+
