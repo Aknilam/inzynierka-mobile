@@ -3,40 +3,44 @@
   </ons-navigator-toolbar>
 
   <ons-text-input
-      placeholder="Name"
-      ng-model="material.name"
-      style="display: block; width: 100%">
+    placeholder="Name"
+    ng-model="material.name"
+    style="display: block; width: 100%">
   </ons-text-input>
   <ons-text-input
-      placeholder="Description"
-      ng-model="material.description"
-      style="display: block; width: 100%">
+    placeholder="Description"
+    ng-model="material.description"
+    style="display: block; width: 100%">
   </ons-text-input>
   coordinates: ({{material.lat}}, {{material.lng}})
   angle: {{material.iconAngle}}
 
   <ons-button
-      type="cta-large"
-      ng-click="photo()"
-      style="display: block; width: 100%; margin-top: 8px;">
-        Photo
+    type="cta-large"
+    ng-click="photo()"
+    style="display: block; width: 100%; margin-top: 8px;">
+      Photo
   </ons-button>
 
+  <img ng-show="photoLoaded" id="photoImg" style="max-width: 100%; max-height: 50%;"/>
+
   <ons-button
-      type="cta-large"
-      ng-click="refresh()"
-      style="display: block; width: 100%; margin-top: 8px;">
-        Refresh
+    type="cta-large"
+    ng-click="refresh()"
+    style="display: block; width: 100%; margin-top: 8px;">
+      Refresh
   </ons-button>
 
   <div ng-show="!processing && ready">
     <ons-button
-        type="cta-large"
-        ng-click="save()"
-        ng-show="ready"
-        style="display: block; width: 100%; margin-top: 8px;">
-          Save
+      type="cta-large"
+      ng-click="save()"
+      ng-show="ready"
+      style="display: block; width: 100%; margin-top: 8px;">
+        Save
     </ons-button>
   </div>
-  {{processing ? 'Saving' : ''}}
+  <div ng-show="processing">
+    Saving
+  </div>
 </ons-page>

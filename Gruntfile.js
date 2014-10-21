@@ -148,6 +148,8 @@
   dep('ng-tags-input\\ng-tags-input.css');
   dep('ng-tags-input\\ng-tags-input.bootstrap.css');
 
+  dep('CryptoJS\\rollups\\md5.js');
+
   src('js\\*.js');
   src('css\\*.css');
 

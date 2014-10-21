@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="com.gps"
+  version="0.1.0">
+  <name>gps</name>
+  <description>Michal Gps Plugin</description>
+  <license>Michal 1.0</license>
+  <keywords>michal,gps</keywords>
+
+
+  <js-module src="www/Gps.js" name="Gps">
+    <clobbers target="window.Gps" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="GpsPlugin">
+        <param name="android-package" value="com.gps.GpsPlugin"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/GpsPlugin.java" target-dir="src/com/gps/" />
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    </config-file>
+  </platform>
+
+</plugin>

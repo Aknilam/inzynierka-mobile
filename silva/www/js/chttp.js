@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  var mmHttp = angular.module('mmHttp', ['angularFileUpload', 'mmAnswer']);
+  var mmHttp = angular.module('mmHttp', ['angularFileUpload', 'mmAnswer', 'mmAlert']);
 
-  mmHttp.factory('mmHttp', ['$http', 'mmAnswer', function($http, answer) {
+  mmHttp.factory('mmHttp', ['$http', '$timeout', 'mmAnswer', 'mmAlert', function($http, $timeout, answer, alert) {
     var http = {
       url: 'http://192.168.0.10:1337',
 
@@ -189,14 +189,24 @@
       },
 
       _ping: function() {
-        http._get('ping', function(data) {
-          if (data === 'pong') {
-            http.state = http.states.connected;
-          }
-        }, function(message) {
-          http.state = http.states.disconnected;
-          alert(message);
-        }, true);
+        try {
+          http._get('ping', function(data) {
+            if (data === 'pong') {
+              http.state = http.states.connected;
+            }
+          }, function(message) {
+            http.state = http.states.disconnected;
+            alert.info('Check your internet connection');
+            $timeout(function() {
+              http._ping();
+            }, 5000);
+          }, true);
+        } catch (e) {
+          alert.info('Check your internet connection');
+          $timeout(function() {
+            http._ping();
+          }, 5000);
+        }
       }
     };
     http._ping();

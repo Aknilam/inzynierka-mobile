@@ -58,7 +58,7 @@
         return {
           id: project.id,
           name: project.name,
-          description: description;
+          description: project.description,
           owner: project.owner,
           accessible: project.accessible,
           editable: project.editable,

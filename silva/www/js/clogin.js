@@ -16,9 +16,6 @@
         authenticating: 'authenticating'
       };
 
-      console.log(JSON.stringify(answer));
-      console.log(JSON.stringify(alert));
-
       var mmLogin = {
         state: states.unauthorized,
 
@@ -46,10 +43,10 @@
                 d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
                 var expires = 'expires=' + d.toUTCString();
                 document.cookie = 'mmLoginL' + '=' + username + "; " + expires;
-                document.cookie = 'mmLoginP' + '=' + CryptoJS.MD5(password).toString() + "; " + expires;
+                document.cookie = 'mmLoginP' + '=' + password + "; " + expires;
 
                 window.localStorage.setItem('mmLoginL', username);
-                window.localStorage.setItem('mmLoginP', CryptoJS.MD5(password).toString());
+                window.localStorage.setItem('mmLoginP', password.toString());
 
                 PROJECTS.getAll();
                 alert.success('Successfully logged in');
@@ -92,7 +89,8 @@
           }
 
           if (mmLogin.state === states.authorized) {
-            http.post('changePassword', {password: CryptoJS.MD5(password).toString()}, function(serverAnswer, status) {
+            password = CryptoJS.MD5(password).toString();
+            http.post('changePassword', {password: password}, function(serverAnswer, status) {
               if (status === answer.status.success) {
                 var d = new Date();
                 d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));

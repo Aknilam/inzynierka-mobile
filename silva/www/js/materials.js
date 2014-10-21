@@ -314,6 +314,7 @@
     $scope.material = MATERIAL.focused;
     $scope.ready = false;
     $scope.processing = false;
+    $scope.photoLoaded = false;
 
     $scope.refresh = function() {
       var callNumber = 0;
@@ -353,7 +354,9 @@
 
     $scope.photo = function() {
       devices.camera(function(file) {
+        $scope.photoLoaded = true;
         MATERIAL.focused.selectedFile = file;
+        $('#photoImg').attr('src', file);
         $scope.refresh();
       });
     };
@@ -367,6 +370,11 @@
           MATERIAL.focused = {
             name: ''
           };
+          $scope.material = MATERIAL.focused;
+
+          $scope.$apply(function() {
+            $scope.photoLoaded = false;
+          });
         }, function() {
           alert.warning('An error occured');
           $scope.processing = false;

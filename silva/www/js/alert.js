@@ -13,7 +13,9 @@
     };
     angular.forEach(alert.types, function(type) {
       alert[type] = function(text) {
-        $cordovaToast.show(text, 'short', 'bottom');
+        if (window.plugins && window.plugins.toast) {
+          $cordovaToast.show(text, 'short', 'bottom');
+        }
       };
     });
     return alert;
