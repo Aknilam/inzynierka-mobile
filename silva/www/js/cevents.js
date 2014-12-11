@@ -6,9 +6,9 @@
 		var mmEvents = {
 			assignEvents: function() {
 				console.log('assignEvents');
-        document.addEventListener('backbutton', events.back.click, false);
-        document.addEventListener('menubutton', events.menu.click, false);
-        document.addEventListener('searchbutton', events.search.click, false);
+        document.addEventListener('backbutton', mmEvents.back.click, false);
+        document.addEventListener('menubutton', mmEvents.menu.click, false);
+        document.addEventListener('searchbutton', mmEvents.search.click, false);
 			},
 
 			back: {

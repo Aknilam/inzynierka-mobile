@@ -2,10 +2,10 @@
 <widget id="com.ma.linka.silva" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>SiLVA</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        System supporting stocktaking during local vision of the area, using mobile devices.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="malinka.michal@gmail.com" href="http://ma-linka.pl">
+        Michal Malinka
     </author>
     <content src="index.html" />
     <access origin="*" />

@@ -23,28 +23,12 @@
         </form>
       </div>
       <div class="col-md-6">
-        <button type="button" class="btn btn-default" ng-click="editable = !editable">Edit</button>
         <div class="list-element" full-height>
           <ul class="panel-body list-group">
             <li class="pointer-bootstrap list-group-item" ng-repeat="tag in $root.TAGS.data | orderObjectBy:'name'">
               <!-- <span class="badge">14</span> -->
-              <span ng-show="!editable">
-                {{tag.name}}
-                <button type="button" class="close pull-right" style="outline: none;" ng-click="$root.TAGS.remove($event, tag)"><span aria-hidden="true">&times;</span><span class="sr-only">Remove</span></button>
-              </span>
-
-              <span ng-show="editable">
-                <form class="form inline" role="form">
-                  <div class="row">
-                    <div class="col-xs-2">
-                      <button type="submit" class="btn btn-success" ng-click="$root.TAGS.edit(tag)">Save</button>
-                    </div>
-                    <div class="col-xs-10">
-                      <input type="text" ng-model="tag.name" class="form-control">
-                    </div>
-                  </div>
-                </form>
-              </span>
+              {{tag.name}}
+              <button type="button" class="close pull-right" style="outline: none;" ng-click="$root.TAGS.remove($event, tag)"><span aria-hidden="true">&times;</span><span class="sr-only">Remove</span></button>
             </li>
           </ul>
         </div>

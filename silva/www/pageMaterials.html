@@ -42,45 +42,15 @@
         </div>
       </div>
       <div class="col-md-6">
-        <button type="button" class="btn btn-default" ng-click="editable = !editable">Edit</button>
         <div class="list-element" full-height>
           <accordion close-others="true">
             <accordion-group ng-repeat="material in $root.MATERIALS.mapData | orderObjectBy:'name'">
               <accordion-heading>
-                <span ng-show="!editable">
-                  {{material.name}}
-                  <button type="button" class="close pull-right" style="outline: none;" ng-click="$root.MATERIALS.remove($event, material)"><span aria-hidden="true">&times;</span><span class="sr-only">Remove</span></button>
-                </span>
-                <span ng-show="editable">
-                  <form role="form inline" role="form">
-                    <div class="row">
-                      <div class="col-xs-2">
-                        <button type="submit" class="btn btn-success" ng-click="$root.MATERIALS.edit(material)">Save</button>
-                      </div>
-                      <div class="col-xs-10">
-                        <input type="text" ng-model="material.name" class="form-control">
-                      </div>
-                    </div>
-                  </form>
-                </span>
+                {{material.name}}
               </accordion-heading>
               <dl class="dl-horizontal">
                 <dt>Description</dt>
                 <dd>{{material.description}}</dd>
-                <dt>Coordinates</dt>
-                <dd>({{material.lat}}, {{material.lng}})</dd>
-                <dt ng-show="material.angle">Angle</dt>
-                <dd ng-show="material.angle">
-                  <canvas width="60" height="60" id="canvas" mm-compass="material.iconAngle" disallow-change="true"></canvas>
-                  {{material.iconAngle}}
-                </dd>
-                <dt ng-show="material.fileName">Image</dt>
-                <dd ng-show="material.fileName">
-                  <img
-                    ng-if="material.fileName"
-                    style="max-width: 100%; max-height: 50%; min-height: 200px;"
-                    ng-src="http://$root.MATERIALS.url/materials/{{$root.PROJECT.actual.folderName}}/{{material.fileName}}">
-                </dd>
                 <dt>Tags</dt>
                 <dd>
                   <tags-input

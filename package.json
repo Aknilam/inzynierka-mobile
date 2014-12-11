@@ -1,6 +1,6 @@
 {
   "name": "silva-mobile",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": "silva\\www\\js\\app.js",
   "author": {
     "name": "Michał Malinka",

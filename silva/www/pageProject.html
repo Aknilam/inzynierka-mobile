@@ -37,66 +37,16 @@
               <span ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id">me</span>
               <span ng-show="$root.PROJECT.actual.owner !== $root.LOGIN.me.id">{{$root.PROJECT.actual.ownerData}}</span>
             </dd>
-            <dt>
-              editable (for members)
-            </dt>
-            <dd>
-              <span ng-show="$root.PROJECT.actual.editable">
-                YES
-                <button
-                  type="button"
-                  class="btn btn-default"
-                  ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin"
-                  ng-click="$root.PROJECT.deny()">
-                    Deny
-                </button>
-              </span>
-              <span ng-show="!$root.PROJECT.actual.editable">
-                NO
-                <button
-                  type="button"
-                  class="btn btn-default"
-                  ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin"
-                  ng-click="$root.PROJECT.allow()">
-                    Allow
-                </button>
-              </span>
-            </dd>
-            <dt>
-              opened (for members)
-            </dt>
-            <dd>
-              <span ng-show="$root.PROJECT.actual.accessible">
-                YES
-                <button
-                  type="button"
-                  class="btn btn-default"
-                  ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id"
-                  ng-click="$root.PROJECT.close()">
-                    Close
-                </button>
-              </span>
-              <span ng-show="!$root.PROJECT.actual.accessible">
-                NO
-                <button
-                  type="button"
-                  class="btn btn-default"
-                  ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id"
-                  ng-click="$root.PROJECT.open()">
-                    Open
-                </button>
-              </span>
-            </dd>
             <dt ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin">
               access code
             </dt>
             <dd ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin">
               {{$root.PROJECT.actual.accessCode}}
             </dd>
-            <dt>
+            <dt ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin">
               members
             </dt>
-            <dd>
+            <dd ng-show="$root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin">
               <table class="table table-striped">
                 <tbody>
                   <tr>
@@ -125,22 +75,6 @@
                       </span>
                       <span ng-show="member.role === 'owner' || member.id === $root.PROJECT.actual.owner">
                         owner
-                      </span>
-                      <span ng-show="member.id !== $root.PROJECT.actual.owner && ($root.PROJECT.actual.owner === $root.LOGIN.me.id || $root.PROJECT.actual.amIAdmin)">
-                        <button
-                          type="button"
-                          class="btn btn-default"
-                          ng-show="member.role === 'user' && member.id !== $root.PROJECT.actual.owner"
-                          ng-click="$root.PROJECT.giveAdmin(member)">
-                            Give admin
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-default"
-                          ng-show="member.role === 'admin' && member.id !== $root.LOGIN.me.id"
-                          ng-click="$root.PROJECT.takeAdmin(member)">
-                            Take admin
-                        </button>
                       </span>
                     </td>
                   </tr>
